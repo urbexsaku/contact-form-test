@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,5 @@ Route::post('/thanks',[ContactController::class,'store']);
 
 Route::get('/register',[AuthController::class,'register']);
 Route::get('/login',[AuthController::class,'login']);
+
+Route::get('/admin',[AdminController::class, 'index']);

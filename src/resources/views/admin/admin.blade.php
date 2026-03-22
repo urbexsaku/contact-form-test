@@ -10,6 +10,47 @@
 @section('content')
 <div class="admin__content">
   <div class="admin__heading">Admin</div>
-
+  <form class="search-form">
+    <div class="search-form__item">
+      <input type="text" placeholder="名前やメールアドレスを入力してください">
+      <select class="">
+        <option value="" selected disabled>性別</option>
+        <option value=""></option>
+      </select>
+      <select class="">
+        <option value="" selected disabled>お問い合わせの種類</option>
+        <option value=""></option>
+      </select>
+      <select class="">
+        <option value="" selected disabled>年/月/日</option>
+        <option value=""></option>
+      </select>
+      <button class="search-form__button-submit">検索</button>
+      <button class="search-form__button-reset">リセット</button>
+    </div>
+  </form>
+  <div class="">
+    <button class="">エクスポート</button>
+  </div>
+  <table class="contact-table">
+    <tr class="contact-table__row">
+      <th class="contact-table__header">お名前</th>
+      <th class="contact-table__header">性別</th>
+      <th class="contact-table__header">メールアドレス</th>
+      <th class="contact-table__header">お問い合わせの種類</th>
+      <th class="contact-table__header"></th>
+    </tr>
+    @foreach($contacts as $contact)
+    <tr class="contact-table__row">
+      <td class="contact-table__item">{{ $contact['name']}}</td>
+      <td class="contact-table__item">{{ $contact->gender_text}}</td>
+      <td class="contact-table__item">{{ $contact['email']}}</td>
+      <td class="contact-table__item">{{ $contact->category_id}}</td>
+      <td class="contact-table__item">
+        <button class="contact-form__button">詳細</button>
+      </td>
+    </tr>
+    @endforeach
+  </table>
 </div>
 @endsection

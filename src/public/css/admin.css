@@ -22,3 +22,14 @@
   font-size: 20px;
   padding: 0 15px;
 }
+
+.search-form {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.search-form__item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
