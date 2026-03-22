@@ -5,17 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Contact;
+use App\Http\Requests\ContactRequest;
 
 class ContactController extends Controller
 {
-    public function index(Request $request) {
+    public function index() {
         $categories = Category::all();
-        $contact = $request->all();
 
-        return view ('index', compact('categories', 'contact'));
+        return view ('index', compact('categories'));
     }
 
-    public function confirm(Request $request){
+    public function confirm(ContactRequest $request){
         $inputs = $request->all();
 
         $contact = new Contact($request->all());
@@ -30,7 +30,7 @@ class ContactController extends Controller
         return redirect('/')->withInput($request->all());
     }
     
-    public function store(Request $request){
+    public function store(ContactRequest $request){
         $contact = $request->all();
         $contact['tel'] = $request->tel1 . $request->tel2 . $request->tel3;
         Contact::create($contact);

@@ -18,8 +18,13 @@
           <input type="text" name="last_name" placeholder="例: 山田" value="{{ old('last_name') }}">
           <input type="text" name="first_name" placeholder="例: 太郎" value="{{ old('first_name') }}">
         </div>
-        <div class="form__error">
-
+        <div class="form__error--name">
+          @error('last_name')
+            <div>{{ $message }}</div>
+          @enderror  
+          @error('first_name')
+            <div>{{ $message }}</div>
+          @enderror 
         </div>
       </div>
     </div>
@@ -44,7 +49,9 @@
           </label>
         </div>
         <div class="form__error">
-          
+          @error('gender')
+          {{ $message }}
+          @enderror
         </div>
       </div>
     </div>
@@ -58,7 +65,9 @@
           <input type="email" name="email" placeholder="例: test@example.com" value="{{ old('email') }}">
         </div>
         <div class="form__error">
-
+          @error('email')
+          {{ $message }}
+          @enderror
         </div>
       </div>
     </div>
@@ -74,7 +83,17 @@
           <input type="text" name="tel3" placeholder="5678" value="{{ old('tel3') }}">
         </div>
         <div class="form__error">
-
+          @php
+            $shown = [];
+          @endphp
+          @foreach (['tel1', 'tel2', 'tel3'] as $field)
+            @foreach ($errors->get($field) as $message)
+              @if (!in_array($message, $shown))
+                <div>{{ $message }}</div>
+                @php $shown[] = $message; @endphp
+              @endif
+            @endforeach
+          @endforeach
         </div>
       </div>
     </div>
@@ -88,7 +107,9 @@
           <input type="text" name="address" placeholder="例: 東京都渋谷区千駄ヶ谷1-2-3" value="{{ old('address')}}">
         </div>
         <div class="form__error">
-
+          @error('address')
+          {{ $message }}
+          @enderror
         </div>
       </div>
     </div>
@@ -117,7 +138,9 @@
           </select>
         </div>
         <div class="form__error">
-
+          @error('category_id')
+          {{ $message }}
+          @enderror
         </div>
       </div>
     </div>
@@ -131,7 +154,9 @@
           <textarea name="detail" placeholder="お問い合わせ内容をご記載ください">{{ old('detail', $contact['detail'] ?? '')}}</textarea>
         </div>
         <div class="form__error">
-
+          @error('detail')
+          {{ $message }}
+          @enderror
         </div>
       </div>
     </div>
