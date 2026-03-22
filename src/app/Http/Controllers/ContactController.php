@@ -16,13 +16,20 @@ class ContactController extends Controller
     }
 
     public function confirm(Request $request){
+        $inputs = $request->all();
+
         $contact = new Contact($request->all());
         $contact['tel'] = $request->tel1 . $request->tel2 . $request->tel3;
+
         $categories = Category::all();
 
-        return view('confirm', compact('contact', 'categories'));
+        return view('confirm', compact('contact', 'inputs', 'categories'));
     }
 
+    public function back(Request $request){
+        return redirect('/')->withInput($request->all());
+    }
+    
     public function store(Request $request){
         $contact = $request->all();
         $contact['tel'] = $request->tel1 . $request->tel2 . $request->tel3;

@@ -1,6 +1,10 @@
 .thanks {
   position: relative;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   padding: 100px 20px;
 }
 
@@ -9,12 +13,33 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  transform: translate(-50%, -50%);
 
-  font-size: 120px;
-  color: antiquewhite;
+  font-size: 150px;
+  color: #F5EFE6;
   white-space: nowrap;
+  z-index: 0;
 }
 
-.thanks h1 {
-  
+.thanks__header {
+  position: relative;
+  color: #7B6F66;
+  z-index: 1;
+  margin-bottom: 50px;
+}
+
+.thanks__link {
+  width: 80px;
+  height: 40px;
+  background-color: #7B6F66;
+  color: white;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  position: relative;
+  z-index: 1;
 }

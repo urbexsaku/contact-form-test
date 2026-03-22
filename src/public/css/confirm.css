@@ -12,15 +12,11 @@
   padding: 0 15px;
 }
 
-.form {
-  margin: 0 auto;
-  width: 60%
-}
-
 .confirm-table {
+  margin: 0 auto;
   border: 1px solid #ddd;
   border-radius: 3px;
-  width: 100%;
+  width: 70%;
 }
 
 .confirm-table__header {
@@ -44,12 +40,15 @@
 }
 
 .form__button {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
   margin-top: 25px;
 }
 
 .form__button-submit {
-  width: 15%;
+  width: 80px;
   height: 40px;
   background-color: #7B6F66;
   color: white;
@@ -59,10 +58,11 @@
 }
 
 .form__button-edit {
-  width: 15%;
+  width: 80px;
   height: 40px;
-  background-color: #7B6F66;
-  color: white;
+  color: #7B6F66;
+  text-decoration: underline;
+  background: none;
   border: none;
   cursor: pointer;
   padding: 10px;
