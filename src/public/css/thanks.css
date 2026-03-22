@@ -1,0 +1,20 @@
+.thanks {
+  position: relative;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.thanks::before {
+  content: "Thank you";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  font-size: 120px;
+  color: antiquewhite;
+  white-space: nowrap;
+}
+
+.thanks h1 {
+  
+}

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Contact;
 
 class ContactController extends Controller
 {
@@ -15,7 +16,8 @@ class ContactController extends Controller
     }
 
     public function confirm(Request $request){
-        $contact = $request->all();
+        $contact = new Contact($request->all());
+        $contact['tel'] = $request->tel1 . $request->tel2 . $request->tel3;
         $categories = Category::all();
 
         return view('confirm', compact('contact', 'categories'));
@@ -23,6 +25,7 @@ class ContactController extends Controller
 
     public function store(Request $request){
         $contact = $request->all();
+        $contact['tel'] = $request->tel1 . $request->tel2 . $request->tel3;
         Contact::create($contact);
 
         return view('thanks');

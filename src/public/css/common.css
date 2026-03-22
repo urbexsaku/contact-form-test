@@ -1,5 +1,11 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .header {
   max-width: 1230px;
+  margin: 0 auto;
   border-bottom: 1px solid #8B7E74;
 }
 
