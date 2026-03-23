@@ -33,3 +33,66 @@
   align-items: center;
   gap: 20px;
 }
+
+.search-form__input {
+  width: 40%;
+}
+
+.search-form__input input {
+  width: 100%;
+  padding: 5px;
+}
+
+.contact-table__utilities {
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact-table__export {
+  height: 32px;
+  width: 100px;
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+}
+
+.pagination li a,
+.pagination li span {
+  padding: 6px 10px;
+  border: 1px solid #8B7E74;
+  text-decoration: none;
+  color: #8B7E74;
+  display: inline-block;
+  min-width: 32px;
+  height: 32px;
+  text-align: center;
+}
+
+.pagination .active span {
+  background-color: #8B7E74;
+  color: white;
+}
+
+.contact-table {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  border: 1px solid #8B7E74;
+}
+
+.contact-table__header {
+  background-color: #8B7E74;
+  color: white;
+}
+
+.contact-table__row {
+  border-bottom: 1px solid #8B7E74;
+}
+
+.contact-table__item {
+  color: #8B7E74;
+}

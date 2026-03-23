@@ -12,7 +12,7 @@
   <div class="admin__heading">Admin</div>
   <form class="search-form">
     <div class="search-form__item">
-      <input type="text" placeholder="名前やメールアドレスを入力してください">
+      <input class="search-form__input" type="text" placeholder="名前やメールアドレスを入力してください">
       <select class="">
         <option value="" selected disabled>性別</option>
         <option value=""></option>
@@ -29,8 +29,9 @@
       <button class="search-form__button-reset">リセット</button>
     </div>
   </form>
-  <div class="">
-    <button class="">エクスポート</button>
+  <div class="contact-table__utilities">
+    <button class="contact-table__export">エクスポート</button>
+    {{ $contacts->links() }}
   </div>
   <table class="contact-table">
     <tr class="contact-table__row">
@@ -42,12 +43,12 @@
     </tr>
     @foreach($contacts as $contact)
     <tr class="contact-table__row">
-      <td class="contact-table__item">{{ $contact['name']}}</td>
+      <td class="contact-table__item">{{ $contact['last_name']}}　{{ $contact['first_name']}}</td>
       <td class="contact-table__item">{{ $contact->gender_text}}</td>
       <td class="contact-table__item">{{ $contact['email']}}</td>
-      <td class="contact-table__item">{{ $contact->category_id}}</td>
+      <td class="contact-table__item">{{ $contact->category_text}}</td>
       <td class="contact-table__item">
-        <button class="contact-form__button">詳細</button>
+        <button class="contact-table__button">詳細</button>
       </td>
     </tr>
     @endforeach
