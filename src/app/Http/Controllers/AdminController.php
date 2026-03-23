@@ -14,4 +14,10 @@ class AdminController extends Controller
         return view('admin.admin', ['contacts' => $contacts]);
     }
 
+    public function search(Request $request){
+        $contacts = Contact::with('category')->GenderSearch($request->gender)->CategorySearch($request->category_id)->DateSearch($request->date)->KeywordSearch($request->keyword)->get();
+        $categories = Category::all();
+
+        return view('index',compact('contacts', 'categories'));
+    }
 }

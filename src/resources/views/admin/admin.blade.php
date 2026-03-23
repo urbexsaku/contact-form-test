@@ -12,19 +12,23 @@
   <div class="admin__heading">Admin</div>
   <form class="search-form">
     <div class="search-form__item">
-      <input class="search-form__input" type="text" placeholder="名前やメールアドレスを入力してください">
-      <select class="">
+      <input class="search-form__item-input" type="text" name="keyword" placeholder="名前やメールアドレスを入力してください">
+      <select class="search-form__item-select" name="gender">
         <option value="" selected disabled>性別</option>
-        <option value=""></option>
+        <option value="1">男性</option>
+        <option value="2">女性</option>
+        <option value="3">男性</option>
       </select>
-      <select class="">
+      <select class="search-form__item-select" name="category_id">
         <option value="" selected disabled>お問い合わせの種類</option>
-        <option value=""></option>
+        @foreach ($categories as $category)
+        <option value="{{ $category['id'] }}">{{ $category->category_text }}</option>
+        @endforeach
       </select>
-      <select class="">
-        <option value="" selected disabled>年/月/日</option>
-        <option value=""></option>
-      </select>
+      <div class="search-form__item-input">
+        <label for="date">年/月/日<label>
+        <input type="date" name="date">
+      </div>
       <button class="search-form__button-submit">検索</button>
       <button class="search-form__button-reset">リセット</button>
     </div>

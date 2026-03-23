@@ -24,4 +24,7 @@ Route::post('/thanks',[ContactController::class,'store']);
 Route::get('/register',[AuthController::class,'register']);
 Route::get('/login',[AuthController::class,'login']);
 
-Route::get('/admin',[AdminController::class, 'index']);
+Route::middleware('auth')->group(function(){
+  Route::get('/admin',[AdminController::class, 'index']);
+  Route::get('/search',[AdminController::class,'search']);
+});

@@ -38,4 +38,41 @@ class Contact extends Model
             5 => 'その他',
         ][$this->category_id];
     }
+
+    public function categories(){
+        return $this->belongsTo('Category::class');
+    }
+
+    public function scopeGenderSearch($query, $gender){
+        if (!empty($gender)){
+            $query->where('gender', $gender);
+        }
+        return $query;
+    }
+
+    public function scopeCategorySearch($query, $category_id){
+        if (!empty($category_id)){
+            $query->where('ccategory_id', $category_id);
+        }
+        return $query;
+    }
+
+    public function scopeDateSearch($query, $date){
+        if (!empty($date)){
+            $query->where('created_at', $date);
+        }
+        return $query;
+    }
+
+    public function scopeKeywordSearch($query, $keyword){
+        if (!empty($keyword)){
+            $query->where(function ($query) use ($keyword){
+                $query->where('last_name', 'like', '%' . $keyword . '%')
+                ->orWhere('first_name', 'like', '%' . $keyword . '%')
+                ->orWhere("CONCAT(last_name, first_name) LIKE ?", ['%' . $keyword . '%'])
+                >orWhere('email', 'like', '%' . $keyword . '%');
+            });
+            return $query;
+        }
+    }
 }
