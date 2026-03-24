@@ -10,7 +10,7 @@
 @section('content')
 <div class="admin__content">
   <div class="admin__heading">Admin</div>
-  <form class="search-form" action="/search" method="get>
+  <form class="search-form" action="/search" method="get">
     <div class="search-form__item">
       <input class="search-form__item-input" type="text" name="keyword" placeholder="名前やメールアドレスを入力してください">
       <select class="search-form__item-select" name="gender">
@@ -22,17 +22,17 @@
       <select class="search-form__item-select" name="category_id">
         <option value="" selected disabled>お問い合わせの種類</option>
         @foreach ($categories as $category)
-        <option value="{{ $category['id'] }}">{{ $category->category_text }}</option>
+        <option value="{{ $category['id'] }}">{{ $category['content']}}</option>
         @endforeach
       </select>
       <input class="search-form__item-select" type="date" name="date">
       <button class="search-form__button-submit">検索</button>
-      <button class="search-form__button-reset">リセット</button>
+      <a class="search-form__button-reset" href="/reset">リセット</a>
     </div>
   </form>
   <div class="contact-table__utilities">
     <button class="contact-table__export">エクスポート</button>
-    {{ $contacts->links() }}
+    <div class="contact-table__pagination">{{ $contacts->links() }}</div>
   </div>
   <table class="contact-table">
     <tr class="contact-table__row">

@@ -24,19 +24,19 @@
 }
 
 .search-form {
-  margin: 0 auto;
   width: 80%;
-  margin-bottom: 15px;
+  margin: 0 auto;
 }
 
 .search-form__item {
+  width: 100%;
   display: flex;
-  align-items: center;
   gap: 10px;
+  
 }
 
 .search-form__item-input {
-  width: 35%;
+  min-width: 250px;
   height: 40px;
   padding: 5px;
 }
@@ -72,6 +72,8 @@
   border: none;
   cursor: pointer;
   padding: 10px;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .contact-table__utilities {
@@ -85,6 +87,12 @@
 .contact-table__export {
   height: 35px;
   width: 130px;
+}
+
+.contact-table__pagination {
+  min-width: 200px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .pagination {

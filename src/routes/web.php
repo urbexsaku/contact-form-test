@@ -22,9 +22,13 @@ Route::post('/',[ContactController::class,'back']);
 Route::post('/thanks',[ContactController::class,'store']);
 
 Route::get('/register',[AuthController::class,'register']);
-Route::get('/login',[AuthController::class,'login']);
+Route::get('/login',[AuthController::class,'login'])->name('login');;
 
 Route::middleware('auth')->group(function(){
   Route::get('/admin',[AdminController::class, 'index']);
   Route::get('/search',[AdminController::class,'search']);
+  Route::get('/reset',[AdminController::class,'reset']);
+  Route::post('/delete',[AdminController::class, 'delete']);
+  Route::get('/export',[AdminController::class, 'export']);
+  Route::post('/logout',[AdminController::class, 'logout']);
 });

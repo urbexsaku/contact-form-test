@@ -20,4 +20,8 @@ class AdminController extends Controller
 
         return view('admin.admin',compact('contacts', 'categories'));
     }
+
+    public function reset(){
+        return redirect('/admin');
+    }
 }
