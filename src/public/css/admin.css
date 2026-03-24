@@ -26,21 +26,52 @@
 .search-form {
   margin: 0 auto;
   width: 80%;
+  margin-bottom: 15px;
 }
 
 .search-form__item {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
 }
 
-.search-form__input {
-  width: 40%;
-}
-
-.search-form__input input {
-  width: 100%;
+.search-form__item-input {
+  width: 35%;
+  height: 40px;
   padding: 5px;
+}
+
+.search-form__item-input input {
+  width: 100%;
+  
+}
+
+.search-form__item-select {
+  background-color: #F3F1EF;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 5px;
+  height: 40px;
+}
+
+.search-form__button-submit {
+  width: 80px;
+  height: 40px;
+  background-color: #7B6F66;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.search-form__button-reset {
+  width: 80px;
+  height: 40px;
+  background-color: #e2dcd4;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
 }
 
 .contact-table__utilities {
@@ -48,11 +79,12 @@
   width: 80%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .contact-table__export {
-  height: 32px;
-  width: 100px;
+  height: 35px;
+  width: 130px;
 }
 
 .pagination {
@@ -87,6 +119,7 @@
 .contact-table__header {
   background-color: #8B7E74;
   color: white;
+  padding: 5px;
 }
 
 .contact-table__row {
@@ -95,4 +128,22 @@
 
 .contact-table__item {
   color: #8B7E74;
+  padding: 5px;
+}
+
+.contact-table__button {
+  background-color: ButtonFace;
+  color: #d3cbc1;
+  border: 1px solid #E8DFD5;
+  padding: 2px 8px;
+  border-radius: 3px;
+  cursor: pointer;
+
+}
+
+th:last-child,
+td:last-child {
+  width: 150px;
+  text-align: right;
+  padding-right: 20px;
 }

@@ -39,8 +39,8 @@ class Contact extends Model
         ][$this->category_id];
     }
 
-    public function categories(){
-        return $this->belongsTo('Category::class');
+    public function category(){
+        return $this->belongsTo(Category::class);
     }
 
     public function scopeGenderSearch($query, $gender){
@@ -52,7 +52,7 @@ class Contact extends Model
 
     public function scopeCategorySearch($query, $category_id){
         if (!empty($category_id)){
-            $query->where('ccategory_id', $category_id);
+            $query->where('category_id', $category_id);
         }
         return $query;
     }
@@ -69,10 +69,11 @@ class Contact extends Model
             $query->where(function ($query) use ($keyword){
                 $query->where('last_name', 'like', '%' . $keyword . '%')
                 ->orWhere('first_name', 'like', '%' . $keyword . '%')
-                ->orWhere("CONCAT(last_name, first_name) LIKE ?", ['%' . $keyword . '%'])
-                >orWhere('email', 'like', '%' . $keyword . '%');
+                ->orWhereRaw("CONCAT(last_name, first_name) LIKE ?", ['%' . $keyword . '%'])
+                ->orWhere('email', 'like', '%' . $keyword . '%');
             });
-            return $query;
+            
         }
+        return $query;
     }
 }
