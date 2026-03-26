@@ -1,12 +1,13 @@
-.header__link {
+.logout__button {
   background-color: ButtonFace;
   color: #d3cbc1;
   border: 1px solid #E8DFD5;
   padding: 2px 8px;
-  text-decoration: none;
   border-radius: 3px;
   font: menu;
+  width: 60px;
   cursor: pointer;
+  text-align: center;
 }
 
 .admin__content {
@@ -194,7 +195,7 @@ td:last-child {
   top: 15px;
   right: 20px;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 13px;
   color: #8B7E74;
   width: 30px;
   height: 30px;
@@ -203,8 +204,6 @@ td:last-child {
   display: flex;
   justify-content: center;
   align-items: center;
-  line-height: 1;
-  transform: translateY(-1px);
 }
 
 .modal__close:hover {

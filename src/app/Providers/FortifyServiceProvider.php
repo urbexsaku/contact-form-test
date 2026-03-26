@@ -43,14 +43,12 @@ class FortifyServiceProvider extends ServiceProvider
             return view('auth.login');
         });
 
-        Fortify::authenticateUsing(function ($request){
-
-        $form = new LoginRequest();
+        Fortify::authenticateUsing(function (Request $request){
 
         $validator = Validator::make(
             $request->all(),
-            $form->rules(),
-            $form->messages()
+            (new LoginRequest())->rules(),
+            (new LoginRequest())->messages()
         );
 
         if ($validator->fails()){

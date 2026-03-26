@@ -4,7 +4,10 @@
 @endsection
 
 @section('header-button')
-<a class="header__link" href="/logout">logout</a>
+<form action="/logout" method="post">
+  @csrf
+  <button class="logout__button">logout</button> 
+</form>
 @endsection
 
 @section('content')
@@ -32,7 +35,13 @@
     </div>
   </form>
   <div class="contact-table__utilities">
-    <button class="contact-table__export">エクスポート</button>
+    <form action="/export" method="get">
+      <input type="hidden" name="gender" value="{{ request('gender') }}">
+      <input type="hidden" name="category_id" value="{{ request('category_id') }}">
+      <input type="hidden" name="date" value="{{ request('date') }}">
+      <input type="hidden" name="keyword" value="{{ request('keyword') }}">
+      <button class="contact-table__export">エクスポート</button>
+    </form>
     <div class="contact-table__pagination">{{ $contacts->links() }}</div>
   </div>
   <table class="contact-table">
@@ -93,10 +102,10 @@
             <span class="modal__value">{{ $contact['detail'] }}</span>
           </div>
           <div class="modal__button">
-            <form action="/delete" method="post">
-              @csrf
+            <form action="/delete/{{ $contact->id }}" method="post">
               @method('DELETE')
-              <button class="modal__button-delete">削除</button>
+              @csrf
+               <button class="modal__button-delete">削除</button>
             </form>
           </div>
         </div>
