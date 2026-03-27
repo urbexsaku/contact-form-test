@@ -43,11 +43,6 @@
   padding: 5px;
 }
 
-.search-form__item-input input {
-  width: 100%;
-  
-}
-
 .search-form__item-select {
   background-color: #F3F1EF;
   border: 1px solid #ddd;
@@ -72,7 +67,6 @@
   background-color: #e2dcd4;
   color: white;
   border: none;
-  cursor: pointer;
   padding: 10px;
   text-decoration: none;
   text-align: center;

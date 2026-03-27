@@ -1,8 +1,3 @@
-body {
-  margin: 0;
-  padding: 0;
-}
-
 .header {
   max-width: 1230px;
   margin: 0 auto;
@@ -18,7 +13,7 @@ body {
 
 .header__left,
 .header__right {
-  width: 120px
+  width: 120px;
 }
 
 .header__logo {

@@ -10,7 +10,7 @@
     <tr class="confirm-table__row">
       <th class="confirm-table__header">お名前</th>
       <td class="confirm-table__input">
-        {{ $contact['last_name']}}　{{ $contact['first_name']}}
+        {{ $contact['last_name'] }}　{{ $contact['first_name'] }}
       </td>
     </tr>
     <tr class="confirm-table__row">
@@ -22,25 +22,25 @@
     <tr class="confirm-table__row">
       <th class="confirm-table__header">メールアドレス</th>
       <td class="confirm-table__input">
-        {{ $contact['email']}}
+        {{ $contact['email'] }}
       </td>
     </tr>
     <tr class="confirm-table__row">
       <th class="confirm-table__header">電話番号</th>
       <td class="confirm-table__input">
-        {{ $contact['tel']}}
+        {{ $contact['tel'] }}
       </td>
     </tr>
     <tr class="confirm-table__row">
       <th class="confirm-table__header">住所</th>
       <td class="confirm-table__input">
-        {{ $contact['address']}}
+        {{ $contact['address'] }}
       </td>
     </tr>
     <tr class="confirm-table__row">
       <th class="confirm-table__header">建物名</th>
       <td class="confirm-table__input">
-        {{ $contact['building']}}
+        {{ $contact['building'] }}
       </td>
     </tr>
     <tr class="confirm-table__row">
@@ -52,7 +52,7 @@
     <tr class="confirm-table__row">
       <th class="confirm-table__header">お問い合わせ内容</th>
       <td class="confirm-table__input">
-        {{ $contact['detail']}}
+        {{ $contact['detail'] }}
       </td>
     </tr>
   </table>

@@ -8,9 +8,9 @@
   <link rel="stylesheet" href="{{ asset('css/thanks.css') }}">
 </head>
 <body>
-<div class="thanks">
-  <h1 class="thanks__header">お問い合わせありがとうございました</h1>
-  <a class="thanks__link" href="/">HOME</a>
-</div>
+  <div class="thanks">
+    <h1 class="thanks__header">お問い合わせありがとうございました</h1>
+    <a class="thanks__link" href="/">HOME</a>
+  </div>
 </body>
 </html>

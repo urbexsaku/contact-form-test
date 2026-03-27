@@ -5,8 +5,9 @@
   padding: 2px 8px;
   text-decoration: none;
   border-radius: 3px;
-  font: menu;
   cursor: pointer;
+  font-size: 12px;
+  font-family: inherit;
 }
 
 .register-form__content {
@@ -59,7 +60,6 @@
 
 input::placeholder {
   color: #999;
-  padding: 5px;
 }
 
 .form__error {
@@ -68,7 +68,7 @@ input::placeholder {
 }
 
 .form__button {
-  margin: 50px 0px 20px 0px;
+  margin: 50px 0 20px;
 }
 
 .form__button-submit {
@@ -78,5 +78,4 @@ input::placeholder {
   color: white;
   border: none;
   cursor: pointer;
-  padding: 10px;
 }

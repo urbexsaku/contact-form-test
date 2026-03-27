@@ -21,7 +21,7 @@
         <div class="form__error--name">
           @error('last_name')
             <div>{{ $message }}</div>
-          @enderror  
+          @enderror
           @error('first_name')
             <div>{{ $message }}</div>
           @enderror 
@@ -50,7 +50,7 @@
         </div>
         <div class="form__error">
           @error('gender')
-          {{ $message }}
+            {{ $message }}
           @enderror
         </div>
       </div>
@@ -66,7 +66,7 @@
         </div>
         <div class="form__error">
           @error('email')
-          {{ $message }}
+            {{ $message }}
           @enderror
         </div>
       </div>
@@ -83,16 +83,8 @@
           <input type="text" name="tel3" placeholder="5678" value="{{ old('tel3') }}">
         </div>
         <div class="form__error">
-          @php
-            $shown = [];
-          @endphp
-          @foreach (['tel1', 'tel2', 'tel3'] as $field)
-            @foreach ($errors->get($field) as $message)
-              @if (!in_array($message, $shown))
-                <div>{{ $message }}</div>
-                @php $shown[] = $message; @endphp
-              @endif
-            @endforeach
+          @foreach (collect([$errors->get('tel1'), $errors->get('tel2'), $errors->get('tel3')])->flatten()->unique() as $message)
+            <div>{{ $message }}</div>
           @endforeach
         </div>
       </div>
@@ -104,11 +96,11 @@
       </div>
       <div class="form__group-content">
         <div class="form__input">
-          <input type="text" name="address" placeholder="例: 東京都渋谷区千駄ヶ谷1-2-3" value="{{ old('address')}}">
+          <input type="text" name="address" placeholder="例: 東京都渋谷区千駄ヶ谷1-2-3" value="{{ old('address') }}">
         </div>
         <div class="form__error">
           @error('address')
-          {{ $message }}
+            {{ $message }}
           @enderror
         </div>
       </div>
@@ -119,7 +111,7 @@
       </div>
       <div class="form__group-content">
         <div class="form__input">
-          <input type="text" name="building" placeholder="例: 千駄ヶ谷マンション101" value="{{ old('building')}}">
+          <input type="text" name="building" placeholder="例: 千駄ヶ谷マンション101" value="{{ old('building') }}">
         </div>
       </div>
     </div>
@@ -130,16 +122,16 @@
       </div>
       <div class="form__group-content">
         <div class="form__input">
-          <select name="category_id" required>
+          <select name="category_id">
             <option value="" selected disabled>選択してください</option>
             @foreach ($categories as $category)
-            <option value="{{ $category['id'] }}" {{old('category_id') == $category['id'] ? 'selected' : '' }}>{{ $category['content']}}</option>
+            <option value="{{ $category['id'] }}" {{ old('category_id') == $category['id'] ? 'selected' : '' }}>{{ $category['content'] }}</option>
             @endforeach
           </select>
         </div>
         <div class="form__error">
           @error('category_id')
-          {{ $message }}
+            {{ $message }}
           @enderror
         </div>
       </div>
@@ -151,17 +143,17 @@
       </div>
       <div class="form__group-content">
         <div class="form__input">
-          <textarea name="detail" placeholder="お問い合わせ内容をご記載ください">{{ old('detail', $contact['detail'] ?? '')}}</textarea>
+          <textarea name="detail" placeholder="お問い合わせ内容をご記載ください">{{ old('detail', $contact['detail'] ?? '') }}</textarea>
         </div>
         <div class="form__error">
           @error('detail')
-          {{ $message }}
+            {{ $message }}
           @enderror
         </div>
       </div>
     </div>
     <div class="form__button">
-      <button class="form__button-submit">確認画面</button>
+      <button class="form__button-submit" type="submit">確認画面</button>
     </div>
   </form>
 

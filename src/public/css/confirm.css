@@ -35,7 +35,7 @@
 }
 
 .confirm-table__row:last-child .confirm-table__header,
-.confirm-table__row:last-child .confirm-table__inner {
+.confirm-table__row:last-child .confirm-table__input {
   border-bottom: none;
 }
 
@@ -54,7 +54,6 @@
   color: white;
   border: none;
   cursor: pointer;
-  padding: 10px;
 }
 
 .form__button-edit {
@@ -65,5 +64,4 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 10px;
 }

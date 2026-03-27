@@ -34,12 +34,10 @@
   background-color: #7B6F66;
   color: white;
   text-decoration: none;
-  border: none;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5px;
   position: relative;
   z-index: 1;
 }

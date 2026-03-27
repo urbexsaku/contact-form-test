@@ -26,7 +26,7 @@
       <select class="search-form__item-select" name="category_id">
         <option value="" selected disabled>お問い合わせの種類</option>
         @foreach ($categories as $category)
-        <option value="{{ $category['id'] }}">{{ $category['content']}}</option>
+        <option value="{{ $category['id'] }}">{{ $category['content'] }}</option>
         @endforeach
       </select>
       <input class="search-form__item-select" type="date" name="date">
@@ -54,64 +54,65 @@
     </tr>
     @foreach($contacts as $contact)
     <tr class="contact-table__row">
-      <td class="contact-table__item">{{ $contact['last_name']}}　{{ $contact['first_name']}}</td>
-      <td class="contact-table__item">{{ $contact->gender_text}}</td>
-      <td class="contact-table__item">{{ $contact['email']}}</td>
-      <td class="contact-table__item">{{ $contact->category_text}}</td>
+      <td class="contact-table__item">{{ $contact['last_name'] }}　{{ $contact['first_name'] }}</td>
+      <td class="contact-table__item">{{ $contact->gender_text }}</td>
+      <td class="contact-table__item">{{ $contact['email'] }}</td>
+      <td class="contact-table__item">{{ $contact->category_text }}</td>
       <td class="contact-table__item">
         <a href="#modal-{{ $contact->id }}" class="contact-table__button">詳細</a>
       </td>
     </tr>
-    <div id="modal-{{ $contact->id}}" class="modal">
-      <div class="modal__content">
-        <a href="#" class="modal__close">x<a>
-
-        <div class="modal__inner">
-          <div class="modal__row">
-            <span class="modal__label">お名前</span>
-            <span class="modal__value">
-              {{ $contact['last_name'] }}　{{ $contact['first_name'] }}
-            </span>
-          </div>
-          <div class="modal__row">
-            <span class="modal__label">性別</span>
-            <span class="modal__value">{{ $contact->gender_text }}</span>
-          </div>
-          <div class="modal__row">
-            <span class="modal__label">メールアドレス</span>
-            <span class="modal__value">{{ $contact['email'] }}</span>
-          </div>
-          <div class="modal__row">
-            <span class="modal__label">電話番号</span>
-            <span class="modal__value">{{ $contact['tel'] }}</span>
-          </div>
-          <div class="modal__row">
-            <span class="modal__label">住所</span>
-            <span class="modal__value">{{ $contact['address'] }}</span>
-          </div>
-          <div class="modal__row">
-            <span class="modal__label">建物名</span>
-            <span class="modal__value">{{ $contact['building'] }}</span>
-          </div>
-          <div class="modal__row">
-            <span class="modal__label">お問い合わせの種類</span>
-            <span class="modal__value">{{ $contact->category_text }}</span>
-          </div>
-          <div class="modal__row">
-            <span class="modal__label">お問い合わせ内容</span>
-            <span class="modal__value">{{ $contact['detail'] }}</span>
-          </div>
-          <div class="modal__button">
-            <form action="/delete/{{ $contact->id }}" method="post">
-              @method('DELETE')
-              @csrf
-               <button class="modal__button-delete">削除</button>
-            </form>
-          </div>
+    @endforeach
+  </table>
+  @foreach($contacts as $contact)
+  <div id="modal-{{ $contact->id }}" class="modal">
+    <div class="modal__content">
+      <a href="#" class="modal__close">x</a>
+      <div class="modal__inner">
+        <div class="modal__row">
+          <span class="modal__label">お名前</span>
+          <span class="modal__value">
+            {{ $contact['last_name'] }}　{{ $contact['first_name'] }}
+          </span>
+        </div>
+        <div class="modal__row">
+          <span class="modal__label">性別</span>
+          <span class="modal__value">{{ $contact->gender_text }}</span>
+        </div>
+        <div class="modal__row">
+          <span class="modal__label">メールアドレス</span>
+          <span class="modal__value">{{ $contact['email'] }}</span>
+        </div>
+        <div class="modal__row">
+          <span class="modal__label">電話番号</span>
+          <span class="modal__value">{{ $contact['tel'] }}</span>
+        </div>
+        <div class="modal__row">
+          <span class="modal__label">住所</span>
+          <span class="modal__value">{{ $contact['address'] }}</span>
+        </div>
+        <div class="modal__row">
+          <span class="modal__label">建物名</span>
+          <span class="modal__value">{{ $contact['building'] }}</span>
+        </div>
+        <div class="modal__row">
+          <span class="modal__label">お問い合わせの種類</span>
+          <span class="modal__value">{{ $contact->category_text }}</span>
+        </div>
+        <div class="modal__row">
+          <span class="modal__label">お問い合わせ内容</span>
+          <span class="modal__value">{{ $contact['detail'] }}</span>
+        </div>
+        <div class="modal__button">
+          <form action="/delete/{{ $contact->id }}" method="post">
+            @method('DELETE')
+            @csrf
+            <button class="modal__button-delete">削除</button>
+          </form>
         </div>
       </div>
     </div>
-    @endforeach
-  </table>
+  </div>
+  @endforeach
 </div>
 @endsection
