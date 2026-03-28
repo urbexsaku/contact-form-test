@@ -72,8 +72,9 @@
       <input type="hidden" name="building" value="{{ $contact['building'] }}">
       <input type="hidden" name="category_id" value="{{ $contact['category_id'] }}">
       <input type="hidden" name="detail" value="{{ $contact['detail'] }}">
-      <button class="form__button-submit">送信</button>
+      <button type="submit" class="form__button-submit">送信</button>
     </form>
+
     <form action="/" method="post">
       @csrf      
       <input type="hidden" name="last_name" value="{{ $contact['last_name'] }}">
@@ -89,7 +90,7 @@
       <input type="hidden" name="building" value="{{ $contact['building'] }}">
       <input type="hidden" name="category_id" value="{{ $contact['category_id'] }}">
       <input type="hidden" name="detail" value="{{ $contact['detail'] }}">
-      <button class="form__button-edit">修正</button>
+      <button type="submit" class="form__button-edit">修正</button>
     </form>
   </div>
 </div>

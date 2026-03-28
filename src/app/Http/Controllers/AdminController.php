@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 {
     public function index(){
-        $contacts = Contact::Paginate(7);
+        $contacts = Contact::paginate(7);
         $categories = Category::all();
         return view('admin.admin', compact('contacts', 'categories'));
     }
@@ -26,8 +26,8 @@ class AdminController extends Controller
         return redirect('/admin');
     }
 
-    public function destroy(Request $request){
-        Contact::find($request->id)->delete();
+    public function destroy($id){
+        Contact::find($id)->delete();
         return redirect('/admin');
     }
 
@@ -66,7 +66,7 @@ class AdminController extends Controller
                 $contact->category_text,
                 $contact->detail
             ]);
-        }
+    }
 
         rewind($stream);
 

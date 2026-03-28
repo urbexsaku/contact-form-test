@@ -6,7 +6,7 @@
 @section('header-button')
 <form action="/logout" method="post">
   @csrf
-  <button class="logout__button">logout</button> 
+  <button class="logout__button">logout</button>
 </form>
 @endsection
 
@@ -14,7 +14,6 @@
 <div class="admin__content">
   <div class="admin__heading">Admin</div>
   <form class="search-form" action="/search" method="get">
-    @csrf
     <div class="search-form__item">
       <input class="search-form__item-input" type="text" name="keyword" placeholder="名前やメールアドレスを入力してください">
       <select class="search-form__item-select" name="gender">
@@ -30,17 +29,18 @@
         @endforeach
       </select>
       <input class="search-form__item-select" type="date" name="date">
-      <button class="search-form__button-submit">検索</button>
+      <button type="submit" class="search-form__button-submit">検索</button>
       <a class="search-form__button-reset" href="/reset">リセット</a>
     </div>
   </form>
+
   <div class="contact-table__utilities">
     <form action="/export" method="get">
       <input type="hidden" name="gender" value="{{ request('gender') }}">
       <input type="hidden" name="category_id" value="{{ request('category_id') }}">
       <input type="hidden" name="date" value="{{ request('date') }}">
       <input type="hidden" name="keyword" value="{{ request('keyword') }}">
-      <button class="contact-table__export">エクスポート</button>
+      <button type="submit" class="contact-table__export">エクスポート</button>
     </form>
     <div class="contact-table__pagination">{{ $contacts->links() }}</div>
   </div>
@@ -50,21 +50,22 @@
       <th class="contact-table__header">性別</th>
       <th class="contact-table__header">メールアドレス</th>
       <th class="contact-table__header">お問い合わせの種類</th>
-      <th class="contact-table__header"></th>
+      <th class="contact-table__header contact-table__header--detail"></th>
     </tr>
-    @foreach($contacts as $contact)
+    @foreach ($contacts as $contact)
     <tr class="contact-table__row">
       <td class="contact-table__item">{{ $contact['last_name'] }}　{{ $contact['first_name'] }}</td>
       <td class="contact-table__item">{{ $contact->gender_text }}</td>
       <td class="contact-table__item">{{ $contact['email'] }}</td>
       <td class="contact-table__item">{{ $contact->category_text }}</td>
-      <td class="contact-table__item">
+      <td class="contact-table__item contact-table__item--detail">
         <a href="#modal-{{ $contact->id }}" class="contact-table__button">詳細</a>
       </td>
     </tr>
     @endforeach
   </table>
-  @foreach($contacts as $contact)
+
+  @foreach ($contacts as $contact)
   <div id="modal-{{ $contact->id }}" class="modal">
     <div class="modal__content">
       <a href="#" class="modal__close">x</a>
@@ -107,7 +108,7 @@
           <form action="/delete/{{ $contact->id }}" method="post">
             @method('DELETE')
             @csrf
-            <button class="modal__button-delete">削除</button>
+            <button type="submit" class="modal__button-delete">削除</button>
           </form>
         </div>
       </div>

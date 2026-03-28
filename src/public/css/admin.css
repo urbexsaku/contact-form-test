@@ -4,7 +4,6 @@
   border: 1px solid #E8DFD5;
   padding: 2px 8px;
   border-radius: 3px;
-  font: menu;
   width: 60px;
   cursor: pointer;
   text-align: center;
@@ -33,7 +32,7 @@
   width: 100%;
   display: flex;
   gap: 10px;
-  flex-wrap: wrap;  
+  flex-wrap: wrap;
 }
 
 .search-form__item-input {
@@ -153,8 +152,8 @@
   text-align: center;
 }
 
-th:last-child,
-td:last-child {
+.contact-table__header--detail,
+.contact-table__item--detail {
   width: 150px;
   text-align: right;
   padding-right: 20px;

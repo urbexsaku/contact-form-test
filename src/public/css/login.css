@@ -44,7 +44,7 @@
 .form__group-title {
   text-align: left;
   color: #8B7E74;
-  padding: 5px;
+  padding: 5px 0;
 }
 
 .form__input--text input {
@@ -63,6 +63,7 @@ input::placeholder {
 .form__error {
   color: red;
   text-align: left;
+  margin-top: 5px;
 }
 
 .form__button {

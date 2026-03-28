@@ -28,6 +28,7 @@
           </div>
         </div>
       </div>
+
       <div class="form__group">
         <div class="form__group-title">
           <span class="form__label--item">メールアドレス</span>
@@ -43,9 +44,10 @@
           </div>
         </div>
       </div>
+
       <div class="form__group">
         <div class="form__group-title">
-          パスワード
+          <span class="form__label--item">パスワード</span>
         </div>
         <div class="form__group-content">
           <div class="form__input--text">
@@ -58,8 +60,9 @@
           </div>
         </div>
       </div>
+      
       <div class="form__button">
-        <button class="form__button-submit">登録</button>
+        <button type="submit" class="form__button-submit">登録</button>
       </div>
     </form>
   </div>

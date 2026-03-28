@@ -24,10 +24,11 @@
           @enderror
           @error('first_name')
             <div>{{ $message }}</div>
-          @enderror 
+          @enderror
         </div>
       </div>
     </div>
+
     <div class="form__group">
       <div class="form__group-title">
         <span class="form__label--text">性別</span>
@@ -55,6 +56,7 @@
         </div>
       </div>
     </div>
+
     <div class="form__group">
       <div class="form__group-title">
         <span class="form__label--text">メールアドレス</span>
@@ -71,6 +73,7 @@
         </div>
       </div>
     </div>
+
     <div class="form__group">
       <div class="form__group-title">
         <span class="form__label--text">電話番号</span>
@@ -89,6 +92,7 @@
         </div>
       </div>
     </div>
+
     <div class="form__group">
       <div class="form__group-title">
         <span class="form__label--text">住所</span>
@@ -105,6 +109,7 @@
         </div>
       </div>
     </div>
+
     <div class="form__group">
       <div class="form__group-title">
         <span class="form__label--text">建物名</span>
@@ -115,6 +120,7 @@
         </div>
       </div>
     </div>
+
     <div class="form__group">
       <div class="form__group-title">
         <span class="form__label--text">お問い合わせの種類</span>
@@ -123,7 +129,7 @@
       <div class="form__group-content">
         <div class="form__input">
           <select name="category_id">
-            <option value="" selected disabled>選択してください</option>
+            <option value="" disabled {{ old('category_id', $contact['category_id'] ?? '') ? '' : 'selected' }}>選択してください</option>
             @foreach ($categories as $category)
             <option value="{{ $category['id'] }}" {{ old('category_id') == $category['id'] ? 'selected' : '' }}>{{ $category['content'] }}</option>
             @endforeach
@@ -136,6 +142,7 @@
         </div>
       </div>
     </div>
+
     <div class="form__group">
       <div class="form__group-title">
         <span class="form__label--text">お問い合わせ内容</span>
@@ -152,6 +159,7 @@
         </div>
       </div>
     </div>
+
     <div class="form__button">
       <button class="form__button-submit" type="submit">確認画面</button>
     </div>

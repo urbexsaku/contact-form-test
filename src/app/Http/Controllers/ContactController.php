@@ -29,7 +29,7 @@ class ContactController extends Controller
     public function back(Request $request){
         return redirect('/')->withInput($request->all());
     }
-    
+   
     public function store(ContactRequest $request){
         $contact = $request->all();
         $contact['tel'] = $request->tel1 . $request->tel2 . $request->tel3;
