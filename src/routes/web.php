@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,16 +16,17 @@ use App\Http\Controllers\AuthController;
 */
 
 Route::get('/', [ContactController::class, 'index']);
-Route::post('/confirm',[ContactController::class, 'confirm']);
-Route::post('/',[ContactController::class, 'back']);
-Route::post('/thanks',[ContactController::class, 'store']);
-Route::get('/login',[AuthController::class, 'showLoginForm'])->name('login');
-Route::post('/login',[AuthController::class, 'login']);
+Route::post('/confirm', [ContactController::class, 'confirm']);
+Route::post('/', [ContactController::class, 'back']);
+Route::post('/thanks', [ContactController::class, 'store']);
+Route::get('/thanks', function(){
+  return view('thanks');
+});
 
 Route::middleware('auth')->group(function(){
-  Route::get('/admin',[AdminController::class, 'index']);
-  Route::get('/search',[AdminController::class, 'search']);
-  Route::get('/reset',[AdminController::class, 'reset']);
-  Route::delete('/delete/{id}',[AdminController::class, 'destroy']);
-  Route::get('/export',[AdminController::class, 'export']);
+  Route::get('/admin', [AdminController::class, 'index']);
+  Route::get('/search', [AdminController::class, 'search']);
+  Route::get('/reset', [AdminController::class, 'reset']);
+  Route::delete('/delete/{id}', [AdminController::class, 'destroy']);
+  Route::get('/export', [AdminController::class, 'export']);
 });

@@ -12,7 +12,7 @@ class ContactController extends Controller
     public function index() {
         $categories = Category::all();
 
-        return view ('index', compact('categories'));
+        return view('index', compact('categories'));
     }
 
     public function confirm(ContactRequest $request){
@@ -29,10 +29,20 @@ class ContactController extends Controller
     }
    
     public function store(ContactRequest $request){
-        $contact = $request->all();
-        $contact['tel'] = $request->tel1 . $request->tel2 . $request->tel3;
+        $contact = [
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'gender' => $request->gender,
+            'email' => $request->email,
+            'tel' => $request->tel1 . $request->tel2 . $request->tel3,
+            'address' => $request->address,
+            'building' => $request->building,
+            'detail' => $request->detail,
+            'category_id' => $request->category_id,
+        ];
+
         Contact::create($contact);
 
-        return view('thanks');
+        return redirect('/thanks');
     }
 }

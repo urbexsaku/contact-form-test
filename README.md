@@ -37,15 +37,18 @@ cp .env.example .env
 #### .env ファイルの修正
 
 ```
-// 前略
-
+前略
 DB_CONNECTION=mysql
-DB_HOST=mysql
-DB_DATABASE=laravel_db
-DB_USERNAME=laravel_user
-DB_PASSWORD=laravel_pass
-
-// 後略
+- DB_HOST=127.0.0.1
++ DB_HOST=mysql
+DB_PORT=3306
+- DB_DATABASE=laravel
+- DB_USERNAME=root
+- DB_PASSWORD=
++ DB_DATABASE=laravel_db
++ DB_USERNAME=laravel_user
++ DB_PASSWORD=laravel_pass
+後略
 ```
 
 #### キー生成

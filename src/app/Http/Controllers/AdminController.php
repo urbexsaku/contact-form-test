@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Contact;
-use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -19,7 +18,7 @@ class AdminController extends Controller
         $contacts = Contact::with('category')->GenderSearch($request->gender)->CategorySearch($request->category_id)->DateSearch($request->date)->KeywordSearch($request->keyword)->paginate(7)->appends($request->query());
         $categories = Category::all();
 
-        return view('admin.admin',compact('contacts', 'categories'));
+        return view('admin.admin', compact('contacts', 'categories'));
     }
 
     public function reset(){
@@ -27,13 +26,8 @@ class AdminController extends Controller
     }
 
     public function destroy($id){
-        Contact::find($id)->delete();
+        Contact::findOrFail($id)->delete();
         return redirect('/admin');
-    }
-
-    public function logout(Request $request){
-        Auth::logout();
-        return redirect('/login');
     }
 
     public function export(Request $request){
@@ -66,7 +60,7 @@ class AdminController extends Controller
                 $contact->category_text,
                 $contact->detail
             ]);
-    }
+        }
 
         rewind($stream);
 
