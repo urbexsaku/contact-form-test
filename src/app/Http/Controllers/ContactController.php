@@ -21,9 +21,7 @@ class ContactController extends Controller
         $contact = new Contact($request->all());
         $contact['tel'] = $request->tel1 . $request->tel2 . $request->tel3;
 
-        $categories = Category::all();
-
-        return view('confirm', compact('contact', 'inputs', 'categories'));
+        return view('confirm', compact('contact', 'inputs'));
     }
 
     public function back(Request $request){

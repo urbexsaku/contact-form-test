@@ -30,13 +30,7 @@ class Contact extends Model
     }
 
     public function getCategoryTextAttribute(){
-        return [
-            1 => '商品のお届けについて',
-            2 => '商品の交換について',
-            3 => '商品トラブル',
-            4 => 'ショップへのお問い合わせ',
-            5 => 'その他',
-        ][$this->category_id];
+        return $this->category->content ?? '';
     }
 
     public function category(){
@@ -59,7 +53,7 @@ class Contact extends Model
 
     public function scopeDateSearch($query, $date){
         if (!empty($date)){
-            $query->where('created_at', $date);
+            $query->whereDate('created_at', $date);
         }
         return $query;
     }

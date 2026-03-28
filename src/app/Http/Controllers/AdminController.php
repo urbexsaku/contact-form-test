@@ -57,7 +57,7 @@ class AdminController extends Controller
 
         foreach ($contacts as $contact){
             fputcsv($stream, [
-                $contact->last_name . ' ' . $contact->first_name,
+                $contact->last_name . '　' . $contact->first_name,
                 $contact->gender_text,
                 $contact->email,
                 $contact->tel,

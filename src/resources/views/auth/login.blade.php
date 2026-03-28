@@ -4,14 +4,14 @@
 @endsection
 
 @section('header-button')
-<a class="header__link" href="/register">register</a>
+<a class="header__link" href="{{ route('register') }}">register</a>
 @endsection
 
 @section('content')
 <div class="login-form__content">
   <div class="login-form__heading">Login</div>
   <div class="login-form__box">
-    <form class="form" action="/login" method="post">
+    <form class="form" action="{{ route('login') }}" method="post">
       @csrf
       <div class="form__group">
         <div class="form__group-title">

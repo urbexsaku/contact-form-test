@@ -176,6 +176,8 @@
 .modal__content {
   background: white;
   max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
   margin: 100px auto;
   padding: 30px 40px;
   border: 1px solid #8B7E74;

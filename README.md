@@ -1,9 +1,10 @@
 # お問い合わせフォーム
 - ユーザーはお問い合わせフォームの入力、入力情報の確認、送信ができる
 - 管理者は会員登録ページから会員登録ができる
-- 管理者は管理画面でお問い合わせ内容一覧の確認、検索、削除ができる
+- 管理者は管理画面でお問い合わせ内容一覧の確認、検索、削除、CSV出力ができる
 
 ## 環境構築
+
 
 #### リポジトリをクローン
 
@@ -39,15 +40,10 @@ cp .env.example .env
 // 前略
 
 DB_CONNECTION=mysql
-- DB_HOST=127.0.0.1
-+ DB_HOST=mysql
-DB_PORT=3306
-- DB_DATABASE=laravel
-- DB_USERNAME=root
-- DB_PASSWORD=
-+ DB_DATABASE=laravel_db
-+ DB_USERNAME=laravel_user
-+ DB_PASSWORD=laravel_pass
+DB_HOST=mysql
+DB_DATABASE=laravel_db
+DB_USERNAME=laravel_user
+DB_PASSWORD=laravel_pass
 
 // 後略
 ```
@@ -80,7 +76,7 @@ Webサーバー：nginx 1.21.1
 
 ## ER図
 
-![ER図](todo.drawio.png)
+![ER図](./contact.drawio.png)
 
 ## URL
 

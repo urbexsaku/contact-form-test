@@ -15,15 +15,13 @@ class AuthController extends Controller
     public function login(LoginRequest $request){
 
     if (Auth::attempt($request->only('email','password'))){
+        $request->session()->regenerate();
+
         return redirect('/admin');
     }
 
     return back()->withErrors([
         'email' => 'ログイン情報が登録されていません',
-    ]);
-    }
-
-    public function register(){
-        return view('auth.register');
+    ])->withInput();
     }
 }

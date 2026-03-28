@@ -4,7 +4,7 @@
 @endsection
 
 @section('header-button')
-<form action="/logout" method="post">
+<form action="{{ route('logout') }}" method="post">
   @csrf
   <button class="logout__button">logout</button>
 </form>
