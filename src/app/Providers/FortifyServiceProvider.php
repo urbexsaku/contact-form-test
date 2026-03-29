@@ -11,6 +11,8 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\ValidationException;
 use Laravel\Fortify\Fortify;
 use Laravel\Fortify\Contracts\LogoutResponse as LogoutResponseContract;
+use Laravel\Fortify\Http\Requests\LoginRequest as FortifyLoginRequest;
+use App\Http\Requests\LoginRequest;
 use App\Models\User;
 
 class FortifyServiceProvider extends ServiceProvider
@@ -20,7 +22,11 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(LogoutResponseContract::class, function(){
+        
+        $this->app->bind(FortifyLoginRequest::class, LoginRequest::class);
+        
+        $this->app->bind(LogoutResponseContract::class, function()
+        {
             return new class implements LogoutResponseContract {
                 public function toResponse($request)
                 {
@@ -28,6 +34,7 @@ class FortifyServiceProvider extends ServiceProvider
                 }
             };
         });
+
     }
 
     /**
@@ -43,18 +50,6 @@ class FortifyServiceProvider extends ServiceProvider
 
         Fortify::loginView(function(){
             return view('auth.login');
-        });
-
-        Fortify::authenticateUsing(function (Request $request){
-            $user = User::where('email', $request->email)->first();
-
-            if ($user && Hash::check($request->password, $user->password)){
-                return $user;
-            }
-
-            throw ValidationException::withMessages([
-                'email' => ['ログイン情報が登録されていません'],
-            ]);
         });
 
         RateLimiter::for('login', function(Request $request){

@@ -22,13 +22,14 @@ class ContactController extends Controller
         $contact['tel'] = $request->tel1 . $request->tel2 . $request->tel3; 
         return view('confirm', compact('contact', 'inputs'));
     }
-
-    public function back(Request $request)
+ 
+    public function store(ContactRequest $request)
     {
-        return redirect('/')->withInput($request->all());
-    }
-   
-    public function store(ContactRequest $request){
+        
+        if ($request->has('back')){
+            return redirect('/')->withInput(); //修正ボタン用リダイレクト
+        }
+
         $contact = [
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,

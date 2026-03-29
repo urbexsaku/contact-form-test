@@ -14,10 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(
-            \Laravel\Fortify\Http\Requests\LoginRequest::class,
-            \App\Http\Requests\LoginRequest::class
-        );
+
     }
 
     /**

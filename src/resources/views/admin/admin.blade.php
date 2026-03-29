@@ -30,7 +30,7 @@
       </select>
       <input class="search-form__item-select" type="date" name="date" value="{{ request('date') }}" >
       <button type="submit" class="search-form__button-submit">検索</button>
-      <a class="search-form__button-reset" href="/reset">リセット</a>
+      <button type="submit"  class="search-form__button-reset" name="reset">リセット</button>
     </div>
   </form>
 
