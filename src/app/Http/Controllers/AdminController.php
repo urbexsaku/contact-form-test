@@ -8,14 +8,23 @@ use App\Models\Contact;
 
 class AdminController extends Controller
 {
-    public function index(){
-        $contacts = Contact::paginate(7);
+    public function index()
+    {
+        $contacts = Contact::paginate(7); //ページネーション
         $categories = Category::all();
         return view('admin.admin', compact('contacts', 'categories'));
     }
 
-    public function search(Request $request){
-        $contacts = Contact::with('category')->GenderSearch($request->gender)->CategorySearch($request->category_id)->DateSearch($request->date)->KeywordSearch($request->keyword)->paginate(7)->appends($request->query());
+    public function search(Request $request)
+    {
+        $contacts = Contact::with('category')
+        ->GenderSearch($request->gender)
+        ->CategorySearch($request->category_id)
+        ->DateSearch($request->date)
+        ->KeywordSearch($request->keyword)
+        ->paginate(7) //検索結果もページネーションを適用
+        ->appends($request->query()); //検索条件を保持
+
         $categories = Category::all();
 
         return view('admin.admin', compact('contacts', 'categories'));

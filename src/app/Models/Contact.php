@@ -53,7 +53,7 @@ class Contact extends Model
 
     public function scopeDateSearch($query, $date){
         if (!empty($date)){
-            $query->whereDate('created_at', $date);
+            $query->whereDate('created_at', $date); //created_atには時間も含まれるため、whereDateで日付のみ検索
         }
         return $query;
     }

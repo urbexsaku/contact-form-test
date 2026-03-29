@@ -11,7 +11,7 @@
 <div class="login-form__content">
   <div class="login-form__heading">Login</div>
   <div class="login-form__box">
-    <form class="form" action="{{ route('login') }}" method="post">
+    <form class="form" action="{{ route('login') }}" method="post" novalidate>
       @csrf
       <div class="form__group">
         <div class="form__group-title">

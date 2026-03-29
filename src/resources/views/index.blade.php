@@ -6,7 +6,7 @@
 @section('content')
 <div class="contact-form__content">
   <div class="contact-form__heading">Contact</div>
-  <form class="form" action="/confirm" method="post">
+  <form class="form" action="/confirm" method="post" novalidate>
     @csrf
     <div class="form__group">
       <div class="form__group-title">

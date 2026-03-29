@@ -9,22 +9,22 @@ use App\Http\Requests\ContactRequest;
 
 class ContactController extends Controller
 {
-    public function index() {
+    public function index()
+     {
         $categories = Category::all();
-
         return view('index', compact('categories'));
     }
 
-    public function confirm(ContactRequest $request){
-        $inputs = $request->all();
-
-        $contact = new Contact($request->all());
-        $contact['tel'] = $request->tel1 . $request->tel2 . $request->tel3;
-
+    public function confirm(ContactRequest $request)
+    {
+        $inputs = $request->all(); //修正ボタンで戻る際にtel 3枠に分けるためにinput使用
+        $contact = new Contact($request->all()); //gender_text適用するためにモデル使用
+        $contact['tel'] = $request->tel1 . $request->tel2 . $request->tel3; 
         return view('confirm', compact('contact', 'inputs'));
     }
 
-    public function back(Request $request){
+    public function back(Request $request)
+    {
         return redirect('/')->withInput($request->all());
     }
    
@@ -42,7 +42,6 @@ class ContactController extends Controller
         ];
 
         Contact::create($contact);
-
         return redirect('/thanks');
     }
 }
