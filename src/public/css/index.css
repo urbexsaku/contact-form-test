@@ -60,7 +60,7 @@
   width: 50%;
 }
 
-.form__input select:invalid{
+.form__input select:invalid {
   color: #999;
 }
 

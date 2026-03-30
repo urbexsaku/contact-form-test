@@ -1,30 +1,30 @@
 .thanks {
-  position: relative;
+  position: relative; /* absoluteの基準 */
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  flex-direction: column; /* タイトル＆ボタンを縦に並べる */
+  justify-content: center; /* 上下中央配置 */
+  align-items: center; /* 左右中央配置 */
+  min-height: 100vh; /* 画面の高さ全体を使用 */
   padding: 100px 20px;
   z-index: 0;
 }
 
-.thanks::before {
+.thanks::before { /* HTML書かずに文字を追加 */
   content: "Thank you";
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 50%; /* 中央寄せ準備 */
+  left: 50%; /* 中央寄せ準備 */
+  transform: translate(-50%, -50%); /* 完全中央寄せ */
   font-size: 150px;
   color: #F5EFE6;
   white-space: nowrap;
-  z-index: 0;
+  z-index: 0; /* 後ろに表示 */
 }
 
 .thanks__header {
-  position: relative;
+  position: relative; /* z-indexを適用するために追加 */
   color: #7B6F66;
-  z-index: 1;
+  z-index: 1; /* 前面に表示 */
   margin-bottom: 50px;
 }
 
@@ -38,6 +38,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  z-index: 1;
+  position: relative; /* z-indexを適用するために追加 */
+  z-index: 1; /* 前面に表示 */
 }
