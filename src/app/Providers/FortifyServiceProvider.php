@@ -23,9 +23,9 @@ class FortifyServiceProvider extends ServiceProvider
     public function register(): void
     {
         
-        $this->app->bind(FortifyLoginRequest::class, LoginRequest::class);
+        $this->app->bind(FortifyLoginRequest::class, LoginRequest::class); //FortifyLoginRequestをLoginRequestへ差し替え
         
-        $this->app->bind(LogoutResponseContract::class, function()
+        $this->app->bind(LogoutResponseContract::class, function() //ログアウト後のリダイレクト先を/loginへ
         {
             return new class implements LogoutResponseContract {
                 public function toResponse($request)

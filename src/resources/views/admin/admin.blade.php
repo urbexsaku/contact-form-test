@@ -12,7 +12,7 @@
 
 @section('content')
 <div class="admin__content">
-  <div class="admin__heading">Admin</div>
+  <h2 class="admin__heading">Admin</h2>
   <form class="search-form" action="/search" method="get">
     <div class="search-form__item">
       <input class="search-form__item-input" type="text" name="keyword" value="{{ request('keyword') }}" placeholder="名前やメールアドレスを入力してください">

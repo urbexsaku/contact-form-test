@@ -86,6 +86,6 @@ class AdminController extends Controller
             'Content-Disposition' => 'attachment; filename="'.$filename.'"',
         ]);
 
-      }
+    }
 
 }
